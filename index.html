@@ -20,6 +20,44 @@
     <div id="viewerCanvas" style="width: 600px; height: 500px"></div>
   </body>
 </html> -->
+
+<!-- Google Books API Part -->
+<!DOCTYPE html "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Google Books Embedded Viewer API Example</title>
+    <script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
+    <script type="text/javascript">
+      google.books.load();
+      function initialize() {
+        // Identity - by Milan Kundera - 0060930314
+        //365 Quotes to Live Your Life By - by I. C. Robledo - 9788832569711
+        // 0060930314 0738531367 8776819256 9780312949808
+        var viewer1 = new google.books.DefaultViewer(document.getElementById('viewerCanvas1'));
+        var viewer2 = new google.books.DefaultViewer(document.getElementById('viewerCanvas2'));
+        var viewer3 = new google.books.DefaultViewer(document.getElementById('viewerCanvas3'));
+        var viewer4 = new google.books.DefaultViewer(document.getElementById('viewerCanvas4'));
+        var viewer5 = new google.books.DefaultViewer(document.getElementById('viewerCanvas5'));
+        viewer1.load('ISBN:0312330871');  // And Then There Were None by Agatha Christie
+        viewer2.load('ISBN:9780062851727'); // Murder on the Orient Express by Agatha Christie        
+        viewer3.load('ISBN:9780983575818'); // Deadly Stillwater by Roger Stelljes
+        viewer4.load('ISBN:9781632917935'); // Cause To Kill by Blake Pierce
+        viewer5.load('ISBN:9780991725908'); // Framed for Murder by Cathy Spencer     
+      }
+    google.books.setOnLoadCallback(initialize);
+    </script>
+  </head>
+  <body>
+    <div id="viewerCanvas1" style="width: 725px; height: 500px"></div>
+    <div id="viewerCanvas2" style="width: 725px; height: 500px"></div>
+    <div id="viewerCanvas3" style="width: 725px; height: 500px"></div>
+    <div id="viewerCanvas4" style="width: 725px; height: 500px"></div>
+    <div id="viewerCanvas5" style="width: 725px; height: 500px"></div>
+  </body>
+</html>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
