@@ -35,9 +35,10 @@
                     </div>
                     <div class="card-body">
                         <form role="form">
-                            <div class="form-group">
-                                <label for="book-name">Book Name</label>
-                                <input type="text" class="form-control" id="book-name">
+                            <div class="form-group" id="bookName">
+                                <label for="book-name">Book Name:  </label>
+
+            
                             </div>
                             <div class="form-group">
                                 <label for="comments">Review Comments</label>
@@ -69,15 +70,28 @@
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+
+$( "#bookName" ).append( $ );
+
+var url_string = window.location.href;
+console.log(url_string);
+var url = new URL(url_string);
+var id = url.searchParams.get("id");
+
+var name = url.searchParams.get("name");
+console.log(name);
+$( "#bookName" ).append(name);
+
     $(".submit").on("click", (event) => {
         event.preventDefault();
         const newReview = {
-            book_id: $("#book-name").val().trim(),
+            book_id: id,
             reviews: $("#comments").val().trim(),
             rating: $("#rating").val().trim(),
             // review_id: $("#review-unique-id").val().trim()
         };
-        $.post("https://nwbookclub.herokuapp.com/reviews", newReview,(data) => {
+        console.log(newReview);
+        $.post("https://nwbookclub.herokuapp.com/review", newReview,(data) => {
             if (data) {
                 alert("Yay! Your book review has been noted!");
             }
