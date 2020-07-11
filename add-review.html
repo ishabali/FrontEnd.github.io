@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Review Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='BCstyle.css'>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="text-center">
+                <span class="fa fa-book"></span> 'Born To Read' Book Club</h1>
+            <hr>
+            <h2 class="text-center">Add a Book Review</h2>
+            <br>
+            <div class="text-center">
+                <!-- <a href="./read-review.html">
+                    <button class="btn btn-lg btn-primary">
+                        <span class="fa fa-list-alt"></span> Read/Update/Delete Reviews</button>
+                </a> -->
+                <a href="./index.html">
+                    <button class="btn btn-lg btn-default">
+                        <span class="fa fa-home"></span> Home
+                    </button>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        Book Review
+                    </div>
+                    <div class="card-body">
+                        <form role="form">
+                            <div class="form-group">
+                                <label for="book-name">Book Name</label>
+                                <input type="text" class="form-control" id="book-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="comments">Review Comments</label>
+                                <input type="text" class="form-control" id="comments">
+                            </div>
+                            <div class="form-group">
+                                <label for="rating">Rating (Out of 5)</label>
+                                <input type="text" class="form-control" id="rating">
+                            </div>
+                            <!-- <div class="form-group">
+                                <label for="review-unique-id">Unique ID</label>
+                                <input type="text" class="form-control" id="review-unique-id">
+                            </div> -->
+                            <button type="submit" class="btn btn-primary submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <p>
+                    <a href="http://localhost:9000/tables">API Table Link</a> |
+                    <a href="http://localhost:9000/waitlist">API Wait List</a>
+            </div>
+        </footer>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(".submit").on("click", (event) => {
+        event.preventDefault();
+        const newReview = {
+            book_id: $("#book-name").val().trim(),
+            reviews: $("#comments").val().trim(),
+            rating: $("#rating").val().trim(),
+            // review_id: $("#review-unique-id").val().trim()
+        };
+        $.post("https://nwbookclub.herokuapp.com/reviews", newReview,(data) => {
+            if (data) {
+                alert("Yay! Your book review has been noted!");
+            }
+            else {
+                alert("Sorry! Your review could not be saved");
+            }
+            $("#book-name").val("");
+            $("#comments").val("");
+            $("#rating").val("");
+            $("#review-unique-id").val("");
+        });
+    });
+</script>
+</html>
