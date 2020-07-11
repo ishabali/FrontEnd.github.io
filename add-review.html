@@ -37,8 +37,10 @@
                         <form role="form">
                             <div class="form-group" id="bookName">
                                 <label for="book-name">Book Name:  </label>
-
-            
+                            </div>
+                            <div class="form-group">
+                                <label for="user_id">User ID</label>
+                                <input type="text" class="form-control" id="user_id">
                             </div>
                             <div class="form-group">
                                 <label for="comments">Review Comments</label>
@@ -86,6 +88,7 @@ $( "#bookName" ).append(name);
         event.preventDefault();
         const newReview = {
             book_id: id,
+            user_id: $("#user_id").val().trim(),
             reviews: $("#comments").val().trim(),
             rating: $("#rating").val().trim(),
             // review_id: $("#review-unique-id").val().trim()
@@ -99,9 +102,10 @@ $( "#bookName" ).append(name);
                 alert("Sorry! Your review could not be saved");
             }
             $("#book-name").val("");
+            $("#user_id").val("");
             $("#comments").val("");
             $("#rating").val("");
-            $("#review-unique-id").val("");
+            // $("#review-unique-id").val("");
         });
     });
 </script>
