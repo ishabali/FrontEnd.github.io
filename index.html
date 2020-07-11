@@ -1,118 +1,125 @@
-<!-- <!DOCTYPE html "-//W3C//DTD XHTML 1.0 Strict//EN"
+<!-- Google Books API Part -- Books opened in Cards> -->
+<!DOCTYPE html "-//W3C//DTD XHTML 1.0 Strict//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <title>Google Books Embedded Viewer API Example</title>
+    <title>Born To Read Book Club</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='BCstyle.css'>
+   
     <script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
     <script type="text/javascript">
       google.books.load();
-
       function initialize() {
-        var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
-        viewer.load('ISBN:9780312949808');
+        
+        // Identity - by Milan Kundera - 0060930314
+        //365 Quotes to Live Your Life By - by I. C. Robledo - 9788832569711
+        // Deadly Stillwater by Roger Stelljes - 9780983575818' // 
+        // 0060930314 0738531367 8776819256 9780312949808
+        var viewer1 = new google.books.DefaultViewer(document.getElementById('viewerCanvas1'));
+        var viewer2 = new google.books.DefaultViewer(document.getElementById('viewerCanvas2'));
+        var viewer3 = new google.books.DefaultViewer(document.getElementById('viewerCanvas3'));
+        var viewer4 = new google.books.DefaultViewer(document.getElementById('viewerCanvas4'));
+        // var viewer5 = new google.books.DefaultViewer(document.getElementById('viewerCanvas5'));
+  
+        viewer1.load('ISBN:0312330871');  // And Then There Were None by Agatha Christie
+        viewer2.load('ISBN:9780062851727'); // Murder on the Orient Express by Agatha Christie          
+        viewer3.load('ISBN:9781632919274'); // A Trace of Death by Blake Pierce
+        viewer4.load('ISBN:9781632917935'); // Cause To Kill by Blake Pierce
+        // viewer5.load('ISBN:9780991725908'); // Framed for Murder by Cathy Spencer     
       }
-// 0060930314 0738531367 8776819256 9780312949808
-      google.books.setOnLoadCallback(initialize);
+    google.books.setOnLoadCallback(initialize);
     </script>
   </head>
   <body>
-    <div id="viewerCanvas" style="width: 600px; height: 500px"></div>
-  </body>
-</html> -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Tables Page</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
-    <div class="container">
+    <div class='container-lg'>
         <div class="jumbotron">
-            <h1 class="text-center"><span class="fa fa-fire"></span> Hot Restaurant</h1>
+            <h1 class="text-center">
+                <span class="fa fa-book"></span> 'Born To Read' Book Club</h1>
             <hr>
-            <h2 class="text-center">Current Reservations and Waiting List</h2>
-            <br>
+            <h2 class="text-center">Books of the Month - Mystery Month</h2>
+            <!-- <br>
             <div class="text-center">
-                <a href="reserve.html"><button class="btn btn-lg btn-danger"><span class="fa fa-credit-card"></span> Make Reservation</button></a>
-                <a href="/"><button class="btn btn-lg btn-default"><span class="fa fa-home"></span></button></a>
-            </div>
+                <a href="/read-review">
+                    <button class="btn btn-lg btn-primary">
+                        <span class="fa fa-list-alt"></span> Read/Update/Delete Reviews</button>
+                </a>
+                <a href="/">
+                    <button class="btn btn-lg btn-default">
+                        <span class="fa fa-home"></span>
+                    </button>
+                </a>
+            </div> -->
         </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Current Reservations</h4>
-                    </div>
-                    <div class="card-body">
-                        <ul id="tableList" class="list-group"></ul>
-                    </div>
-                </div>
-                <div class="card mt-4">
-                    <div class="card-header">
-                        <h4>Waiting List</h4>
-                    </div>
-                    <div class="card-body">
-                        <ul id="waitList" class="list-group"></ul>
-                    </div>
-                </div>
+    
+        <div class='row'>
+          <div class="card-deck">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">1. And Then There Were None by Agatha Christie</h5>
+                <div id="viewerCanvas1" style="width: 500px; height: 600px"></div>
+                <br>
+                  <div class="text-center">
+                    <a href="read-review.html?id=1&name=And Then There Were None by Agatha Christie"><button class="btn btn-lg btn-primary"><span class="fa fa-list-alt"></span> Read/Delete/Update Reviews</button></a>
+                    <a href="add-review.html?id=1&name=And Then There Were None by Agatha Christie"><button class="btn btn-lg btn-danger"><span class="fa fa-credit-card"></span> Add Review</button></a>
+                  </div>
+              </div>
             </div>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">2. Murder on the Orient Express by Agatha Christie</h5>
+                <div id="viewerCanvas2" style="width: 500px; height: 600px"></div>
+                <br>
+                  <div class="text-center">
+                    <a href="read-review.html?id=2&name=Murder on the Orient Express by Agatha Christie"><button class="btn btn-lg btn-primary"><span class="fa fa-list-alt"></span> Read/Delete/Update Reviews</button></a>
+                    <a href="add-review.html?id=2&name=Murder on the Orient Express by Agatha Christie"><button class="btn btn-lg btn-danger"><span class="fa fa-credit-card"></span> Add Review</button></a>
+                  </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <footer class="footer mt-4">
-            <div class="container">
-                <p>Control Panel</p>
-                <p><a href="#" id="clear">Clear Table</a> | <a href="http://localhost:9000/tables">API Table Link</a> | <a href="http://localhost:9000/waitlist">API
-                        Wait List</a>
+        <br>
+        <div class='row'>      
+          <div class="card-deck">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">3. A Trace of Death by Blake Pierce</h5>
+                <div id="viewerCanvas3" style="width: 500px; height: 600px"></div>
+                <br>
+                  <div class="text-center">
+                    <a href="read-review.html?id=3&name=A Trace of Death by Blake Pierce"><button class="btn btn-lg btn-primary"><span class="fa fa-list-alt"></span> Read/Delete/Update Reviews</button></a>
+                    <a href="add-review.html?id=3&name=A Trace of Death by Blake Pierce"><button class="btn btn-lg btn-danger"><span class="fa fa-credit-card"></span> Add Review</button></a>
+                  </div>
+              </div>
             </div>
-        </footer>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">4. Cause To Kill by Blake Pierce</h5>
+                <div id="viewerCanvas4" style="width: 500px; height: 600px"></div>
+                <br>
+                  <div class="text-center">
+                    <a href="read-review.html?id=4&name=Cause To Kill by Blake Pierce"><button class="btn btn-lg btn-primary"><span class="fa fa-list-alt"></span> Read/Delete/Update Reviews</button></a>
+                    <a href="add-review.html?id=4&name=Cause To Kill by Blake Pierce"><button class="btn btn-lg btn-danger"><span class="fa fa-credit-card"></span> Add Review</button></a>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>        
+    <br>
+    <!-- <div id="viewerCanvas1" style="width: 725px; height: 500px"></div>
+    <div id="viewerCanvas2" style="width: 725px; height: 500px"></div>    
+    <div id="viewerCanvas3" style="width: 725px; height: 500px"></div>
+    <div id="viewerCanvas4" style="width: 725px; height: 500px"></div> -->
+    <!-- <div id="viewerCanvas5" style="width: 725px; height: 500px"></div> -->
+    <br>
+    <br>
     </div>
-</body>
-<script src="https://code.jquery.com/jquery.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-    const runTableQuery = () => {
-        $.ajax({ url: "https://nwbookclub.herokuapp.com/user/2", method: "GET" }).then((Data) => {
-            console.log(Data);
-                var tableList = $("#tableList");
-                var listItem = $("<li class='list-group-item mt-4'>");
-                listItem.append(
-                    $("<h2>").text("Table #" + (i + 1)),
-                    $("<hr>"),
-                    $("<h2>").text("ID: " + tableData[i].customerID),
-                    $("<h2>").text("Name: " + tableData[i].customerName),
-                    $("<h2>").text("Email: " + tableData[i].customerEmail),
-                );
-                tableList.append(listItem);
-            
-        });
-    }
-    const runWaitListQuery = () => {
-        $.ajax({ url: "http://localhost:9000/waitlist", method: "GET" }).then((waitData) => {
-            for (var i = 0; i < waitData.length; i++) {
-                var waitList = $("#waitList");
-                var listItem = $("<li class='list-group-item mt-4'>");
-                listItem.append(
-                    $("<h2>").text("Table #" + (i + 1)),
-                    $("<hr>"),
-                    $("<h2>").text("ID: " + waitData[i].customerID),
-                    $("<h2>").text("Name: " + waitData[i].customerName),
-                    $("<h2>").text("Email: " + waitData[i].customerEmail),
-                    $("<h2>").text("Phone: " + waitData[i].phoneNumber)
-                );
-                waitList.append(listItem);
-            }
-        });
-    }
-    const clearTable = () => {
-        $.ajax({ url: "http://localhost:9000/clear", method: "POST" }).then(() => {
-            $("#waitList").empty();
-            $("#tableList").empty();
-        });
-    }
-    $("#clear").on("click", clearTable);
-    runTableQuery();
-    //runWaitListQuery();
-</script>
+    <footer id="bottom" class="fixed-bottom center container-fluid">
+        &#169Copyright Born To Read 2020
+    </footer>
+  </body>
 </html>
