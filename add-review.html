@@ -90,11 +90,11 @@ $( "#bookName" ).append(name);
             book_id: id,
             user_id: $("#user_id").val().trim(),
             reviews: $("#comments").val().trim(),
-            rating: $("#rating").val().trim(),
+            rating: $("#rating").val().trim()
             // review_id: $("#review-unique-id").val().trim()
         };
         console.log(newReview);
-        $.post("https://nwbookclub.herokuapp.com/review", newReview,(data) => {
+        $.post("http://localhost:9000/review-new", newReview,(data) => {
             if (data) {
                 alert("Yay! Your book review has been noted!");
             }
