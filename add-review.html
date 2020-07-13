@@ -94,6 +94,7 @@ $( "#bookName" ).append(name);
             // review_id: $("#review-unique-id").val().trim()
         };
         console.log(newReview);
+        
         $.post("http://localhost:9000/review-new", newReview,(data) => {
             if (data) {
                 alert("Yay! Your book review has been noted!");
