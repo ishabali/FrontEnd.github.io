@@ -60,17 +60,21 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script type="text/javascript">
     const runTableQuery = () => {
-        $.ajax({ url: "http://localhost:9000/tables", method: "GET" }).then((tableData) => {
+        $.ajax({ url: "http://localhost:9000/review-all", method: "GET" }).then((tableData) => {
+            console.log(tableData);
             for (var i = 0; i < tableData.length; i++) {
                 var tableList = $("#tableList");
                 var listItem = $("<li class='list-group-item mt-4'>");
                 listItem.append(
-                    $("<h2>").text("Table #" + (i + 1)),
+                    $("<h2>").text(i + 1),
                     $("<hr>"),
-                    $("<h2>").text("ID: " + tableData[i].customerID),
-                    $("<h2>").text("Name: " + tableData[i].customerName),
-                    $("<h2>").text("Email: " + tableData[i].customerEmail),
-                    $("<h2>").text("Phone: " + tableData[i].phoneNumber)
+                    // $("<h2>").text("ID: " + tableData[i].customerID),
+                    $("<h2>").text("Name: " + tableData[i].user_id),
+                    $("<h2>").text(tableData[i].reviews),
+                    $("<h2>").text("Rating: " + tableData[i].rating),
+                    $(`<button type="button" id="delete" class="btn btn-primary submit">Delete</button>`),
+                    $(`<button type="submit" id="update" class="btn btn-primary submit">Update</button>`)
+
                 );
                 tableList.append(listItem);
             }
@@ -99,8 +103,9 @@
             $("#tableList").empty();
         });
     }
-    $("#clear").on("click", clearTable);
     runTableQuery();
-    runWaitListQuery();
+    
+    // $("#clear").on("click", clearTable);
+    // runWaitListQuery();
 </script>
 </html>
