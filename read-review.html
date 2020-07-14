@@ -32,6 +32,10 @@
                 <div class="card">
                     <div class="card-header">
                         <h4>Current Reviews</h4>
+                        <div class="form-group" id="bookName">
+                            <label for="book-name">Book Name:  </label>
+                        </div>
+
                     </div>
                     <div class="card-body">
                         <ul id="tableList" class="list-group"></ul>
@@ -59,53 +63,54 @@
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-    const runTableQuery = () => {
-        $.ajax({ url: "http://localhost:9000/review-all", method: "GET" }).then((tableData) => {
-            console.log(tableData);
-            for (var i = 0; i < tableData.length; i++) {
-                var tableList = $("#tableList");
-                var listItem = $("<li class='list-group-item mt-4'>");
-                listItem.append(
-                    $("<h2>").text(i + 1),
-                    $("<hr>"),
-                    // $("<h2>").text("ID: " + tableData[i].customerID),
-                    $("<h2>").text("Member ID: " + tableData[i].user_id),
-                    $("<h2>").text(tableData[i].reviews),
-                    $("<h2>").text("Rating: " + tableData[i].rating),
-                    $(`<button type="button" id="delete" class="btn btn-primary submit">Delete</button>`),
-                    $(`<a href="update-review.html?review_id=${tableData[i].review_id}&reviews=${tableData[i].reviews}&rating=${tableData[i].rating}&name=${name}&user_id= ${tableData[i].user_id}"><button type="submit" id="update" class="btn btn-primary submit">Update</button>`)
 
-                );
-                tableList.append(listItem);
-            }
-        });
-    }
-    const runWaitListQuery = () => {
-        $.ajax({ url: "http://localhost:9000/waitlist", method: "GET" }).then((waitData) => {
-            for (var i = 0; i < waitData.length; i++) {
-                var waitList = $("#waitList");
-                var listItem = $("<li class='list-group-item mt-4'>");
-                listItem.append(
-                    $("<h2>").text("Table #" + (i + 1)),
-                    $("<hr>"),
-                    $("<h2>").text("ID: " + waitData[i].customerID),
-                    $("<h2>").text("Name: " + waitData[i].customerName),
-                    $("<h2>").text("Email: " + waitData[i].customerEmail),
-                    $("<h2>").text("Phone: " + waitData[i].phoneNumber)
-                );
-                waitList.append(listItem);
-            }
-        });
-    }
-    const clearTable = () => {
-        $.ajax({ url: "http://localhost:9000/clear", method: "POST" }).then(() => {
-            $("#waitList").empty();
-            $("#tableList").empty();
-        });
-    }
-    runTableQuery();
+var url_string = window.location.href;
+console.log(url_string);
+var url = new URL(url_string);
+var id = url.searchParams.get("id");
+
+var name = url.searchParams.get("name");
+console.log(name);
+$( "#bookName" ).append(name);
+
+$(document).on('click','.delete', function(){
+        const id= $(this).attr("id");
+        $(this).closest('li.list-group-item.mt-4').remove();
+        deleteReview(id);
+        console.log("delete");
+    });
+
+const deleteReview = (id) => {
+    const url = "http://localhost:9000/review/"+id;
+    console.log(url);
+    $.ajax({ url: url, method: "DELETE" }).then((tableData) => {
+        console.log(tableData);
+    });
+}
+
+const runTableQuery = () => {
+    const url = "http://localhost:9000/review/"+id;
+    console.log(url);
+    $.ajax({ url: url, method: "GET" }).then((tableData) => {
+        console.log(tableData);
+        for (var i = 0; i < tableData.length; i++) {
+            var tableList = $("#tableList");
+            var listItem = $("<li class='list-group-item mt-4'>");
+            listItem.append(
+                // $("<h2>").text(i + 1),
+                $("<hr>"),
+                $("<h2>").text("Member ID: " + tableData[i].user_id),
+                $("<h2>").text(tableData[i].reviews),
+                $("<h2>").text("Rating: " + tableData[i].rating),
+                $(`<a href="update-review.html?review_id=${tableData[i].review_id}&reviews=${tableData[i].reviews}&rating=${tableData[i].rating}&name=${name}&user_id= ${tableData[i].user_id}"><button type="submit" id="update" class="btn btn-primary submit">Update</button>`),
+                $(`<button type="button" id=${tableData[i].review_id} class="btn btn-primary submit delete">Delete</button>`)
+            );
+            tableList.append(listItem);
+        }
+    });
+}
     
-    // $("#clear").on("click", clearTable);
-    // runWaitListQuery();
+runTableQuery();
+
 </script>
 </html>
