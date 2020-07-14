@@ -69,11 +69,11 @@
                     $("<h2>").text(i + 1),
                     $("<hr>"),
                     // $("<h2>").text("ID: " + tableData[i].customerID),
-                    $("<h2>").text("Name: " + tableData[i].user_id),
+                    $("<h2>").text("Member ID: " + tableData[i].user_id),
                     $("<h2>").text(tableData[i].reviews),
                     $("<h2>").text("Rating: " + tableData[i].rating),
                     $(`<button type="button" id="delete" class="btn btn-primary submit">Delete</button>`),
-                    $(`<button type="submit" id="update" class="btn btn-primary submit">Update</button>`)
+                    $(`<a href="update-review.html?review_id=${tableData[i].review_id}&reviews=${tableData[i].reviews}&rating=${tableData[i].rating}&name=${name}&user_id= ${tableData[i].user_id}"><button type="submit" id="update" class="btn btn-primary submit">Update</button>`)
 
                 );
                 tableList.append(listItem);
