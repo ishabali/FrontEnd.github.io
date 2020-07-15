@@ -96,11 +96,14 @@ $( "#bookName" ).append(name);
         console.log(newReview);
         
         $.post("http://localhost:9000/review-new", newReview,(data) => {
-            if (data) {
-                alert("Yay! Your book review has been noted!");
+            console.log(data)
+            if (!data) {
+            console.log("IF")
+                 alert("Sorry! You already left a review for the book, you can update it");
             }
             else {
-                alert("Sorry! Your review could not be saved");
+                console.log("ELSE")
+               alert("Yay! Your book review has been noted!");
             }
             $("#book-name").val("");
             $("#user_id").val("");
