@@ -16,10 +16,6 @@
             <h2 class="text-center">Add a Book Review</h2>
             <br>
             <div class="text-center">
-                <!-- <a href="./read-review.html">
-                    <button class="btn btn-lg btn-primary">
-                        <span class="fa fa-list-alt"></span> Read/Update/Delete Reviews</button>
-                </a> -->
                 <a href="./index.html">
                     <button class="btn btn-lg btn-default">
                         <span class="fa fa-home"></span> Home
@@ -31,30 +27,35 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        Book Review
+                        <h5> Book Review</h5>
                     </div>
                     <div class="card-body">
                         <form role="form">
                             <div class="form-group" id="bookName">
-                                <label for="book-name">Book Name:  </label>
+                                <label for="book-name"><h5>Book: </h5></label>
                             </div>
                             <div class="form-group">
-                                <label for="user_id">User ID</label>
-                                <input type="text" class="form-control" id="user_id">
+                                <label for="user_id"><h5>Membership card number:</h5></h5></label>
+                                <input type="text" style="width: 24%;" class="form-control" id="user_id">
                             </div>
                             <div class="form-group">
-                                <label for="comments">Review Comments</label>
-                                <input type="text" class="form-control" id="comments">
+                                <label for="rating"><h5>Rating (Out of 5):</h5></label>
+                                <select class="form-control" style="width: 24%;" id="rating">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                  </select>
+                                  <br>
                             </div>
+
                             <div class="form-group">
-                                <label for="rating">Rating (Out of 5)</label>
-                                <input type="text" class="form-control" id="rating">
+                                <textarea class="form-control" rows="4" placeholder="Review Comments" id="comments" required></textarea>
                             </div>
-                            <!-- <div class="form-group">
-                                <label for="review-unique-id">Unique ID</label>
-                                <input type="text" class="form-control" id="review-unique-id">
-                            </div> -->
-                            <button type="submit" class="btn btn-primary submit">Submit</button>
+                           
+                        
+                            <button type="submit" class="btn-lg btn-success submit">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -91,7 +92,6 @@ $( "#bookName" ).append(name);
             user_id: $("#user_id").val().trim(),
             reviews: $("#comments").val().trim(),
             rating: $("#rating").val().trim()
-            // review_id: $("#review-unique-id").val().trim()
         };
         console.log(newReview);
         
