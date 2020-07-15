@@ -29,7 +29,7 @@
                     <div class="card-header">
                         <h4>Current Reviews</h4>
                         <div class="form-group" id="bookName">
-                            <label for="book-name">Book Name:  </label>
+                            <label for="book-name"><h5>Book Name: </h5> </label>
                         </div>
 
                     </div>
@@ -37,14 +37,7 @@
                         <ul id="tableList" class="list-group"></ul>
                     </div>
                 </div>
-                <!-- <div class="card mt-4">
-                    <div class="card-header">
-                        <h4>Waiting List</h4>
-                    </div>
-                    <div class="card-body">
-                        <ul id="waitList" class="list-group"></ul>
-                    </div>
-                </div> -->
+              
             </div>
         </div>
         <footer class="footer mt-4">
@@ -98,8 +91,8 @@ const runTableQuery = () => {
                 $("<h2>").text("Member ID: " + tableData[i].user_id),
                 $("<h2>").text(tableData[i].reviews),
                 $("<h2>").text("Rating: " + tableData[i].rating),
-                $(`<a href="update-review.html?review_id=${tableData[i].review_id}&reviews=${tableData[i].reviews}&rating=${tableData[i].rating}&name=${name}&user_id= ${tableData[i].user_id}"><button type="submit" id="update" class="btn btn-primary submit">Update</button>`),
-                $(`<button type="button" id=${tableData[i].review_id} class="btn btn-primary submit delete">Delete</button>`)
+                $(`<a href="update-review.html?review_id=${tableData[i].review_id}&reviews=${tableData[i].reviews}&rating=${tableData[i].rating}&name=${name}&user_id= ${tableData[i].user_id}"><button type="submit" id="update" class="btn btn-success submit">Update</button>`),
+                $(`<button type="button" id=${tableData[i].review_id} class="btn btn-danger submit delete">Delete</button>`)
             );
             tableList.append(listItem);
         }
