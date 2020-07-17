@@ -16,7 +16,7 @@
             <h2 class="text-center">Add a Book Review</h2>
             <br>
             <div class="text-center">
-                <a href="./index.html">
+                <a href="./home.html">
                     <button class="btn btn-lg btn-default">
                         <span class="fa fa-home"></span> Home
                     </button>
@@ -90,17 +90,17 @@ $( "#bookName" ).append(name);
         console.log(newReview);
         
         $.post("http://localhost:9000/review-new", newReview,(data) => {
-            if (data) {
-                alert("Yay! Your book review has been noted!");
+            if (!data) {
+                alert("Sorry! You already left a review for the book, you can update it");
             }
             else {
-                alert("Sorry! Your review could not be saved");
+                alert("Yay! Your book review has been noted!");
             }
-            $("#book-name").val("");
+
             $("#user_id").val("");
             $("#comments").val("");
             $("#rating").val("");
-            // $("#review-unique-id").val("");
+
         });
     });
 </script>
