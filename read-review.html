@@ -27,9 +27,9 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Current Reviews</h4>
-                        <div class="form-group" id="bookName">
-                            <label for="book-name"><h5>Book Name: </h5> </label>
+                        <h3>Current Reviews</h3>
+                        <div class="form-group bigletter" id="bookName">
+                            <label for="book-name"><h3>Book:</h3> </label>
                         </div>
 
                     </div>
@@ -40,13 +40,7 @@
               
             </div>
         </div>
-        <footer class="footer mt-4">
-            <div class="container">
-                <p>Control Panel</p>
-                <p><a href="#" id="clear">Clear Table</a> | <a href="http://localhost:9000/tables">API Table Link</a> | <a href="http://localhost:9000/waitlist">API
-                        Wait List</a>
-            </div>
-        </footer>
+        
     </div>
 </body>
 <script src="https://code.jquery.com/jquery.js"></script>
@@ -60,6 +54,7 @@ var id = url.searchParams.get("id");
 
 var name = url.searchParams.get("name");
 console.log(name);
+
 $( "#bookName" ).append(name);
 
 $(document).on('click','.delete', function(){
@@ -86,13 +81,17 @@ const runTableQuery = () => {
             var tableList = $("#tableList");
             var listItem = $("<li class='list-group-item mt-4'>");
             listItem.append(
-                // $("<h2>").text(i + 1),
                 $("<hr>"),
-                $("<h2>").text("Member ID: " + tableData[i].user_id),
+                $("<h3>").text("Member ID: " + tableData[i].user_id),
+                $("<br>"),
                 $("<h2>").text(tableData[i].reviews),
-                $("<h2>").text("Rating: " + tableData[i].rating),
-                $(`<a href="update-review.html?review_id=${tableData[i].review_id}&reviews=${tableData[i].reviews}&rating=${tableData[i].rating}&name=${name}&user_id= ${tableData[i].user_id}"><button type="submit" id="update" class="btn btn-success submit">Update</button>`),
-                $(`<button type="button" id=${tableData[i].review_id} class="btn btn-danger submit delete">Delete</button>`)
+                $("<br>"),
+                $("<br>"),
+                $("<h3>").text("Rating: " + tableData[i].rating),
+                $("<br>"),
+                $(`<a href="update-review.html?review_id=${tableData[i].review_id}&reviews=${tableData[i].reviews}&rating=${tableData[i].rating}&name=${name}&user_id= ${tableData[i].user_id}"><button type="submit" id="update" class="btn-lg btn-success submit"">Update</button>`),
+               
+                $(`<button type="button" id=${tableData[i].review_id} class="btn-lg btn-danger submit delete">Delete</button>`)
             );
             tableList.append(listItem);
         }

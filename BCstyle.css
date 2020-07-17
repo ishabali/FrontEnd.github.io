@@ -24,9 +24,10 @@ body{
         font-size: 60px;
         }
     h3{
+        font-family:'Dancing Script', cursive;
         width: 115%;
-        margin-top: -70px;
-        font-size: 40px;
+        font-size: 35px;
+        color: rgb(0, 0, 34);
     }
     h2, h5{
         font-family:'Dancing Script', cursive;
@@ -56,7 +57,13 @@ body{
         font-size: small;
         margin-left: 55px;
     }
-        #sidebar-wrapper{
+    #sidebar-wrapper{
             background-color: rgb(149, 244, 242);
             color: navy;
         } 
+    .bigletter{
+            font-family:'Dancing Script', cursive;
+            width: 115%;
+            font-size: 35px;
+            color: rgb(0, 0, 34);
+        }
