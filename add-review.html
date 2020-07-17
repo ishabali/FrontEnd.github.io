@@ -16,7 +16,7 @@
             <h2 class="text-center">Add a Book Review</h2>
             <br>
             <div class="text-center">
-                <a href="./index.html">
+                <a href="./home.html">
                     <button class="btn btn-lg btn-default">
                         <span class="fa fa-home"></span> Home
                     </button>
@@ -27,7 +27,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5> Book Review</h5>
+                        <h2> Book Review</h2>
                     </div>
                     <div class="card-body">
                         <form role="form">
@@ -61,13 +61,7 @@
                 </div>
             </div>
         </div>
-        <footer class="footer">
-            <div class="container">
-                <p>
-                    <a href="http://localhost:9000/tables">API Table Link</a> |
-                    <a href="http://localhost:9000/waitlist">API Wait List</a>
-            </div>
-        </footer>
+        
     </div>
 </body>
 <script src="https://code.jquery.com/jquery.js"></script>
@@ -96,6 +90,7 @@ $( "#bookName" ).append(name);
         console.log(newReview);
         
         $.post("http://localhost:9000/review-new", newReview,(data) => {
+<<<<<<< HEAD
             console.log(data)
             if (!data) {
             console.log("IF")
@@ -104,12 +99,19 @@ $( "#bookName" ).append(name);
             else {
                 console.log("ELSE")
                alert("Yay! Your book review has been noted!");
+=======
+            if (!data) {
+                alert("Sorry! You already left a review for the book, you can update it");
             }
-            $("#book-name").val("");
+            else {
+                alert("Yay! Your book review has been noted!");
+>>>>>>> master
+            }
+
             $("#user_id").val("");
             $("#comments").val("");
             $("#rating").val("");
-            // $("#review-unique-id").val("");
+
         });
     });
 </script>
