@@ -19,7 +19,7 @@
             <br>
             <div class="text-center">
         
-                <a href="./index.html">
+                <a href="./home.html">
                     <button class="btn btn-lg btn-default">
                         <span class="fa fa-home"></span> Home
                     </button>
@@ -99,7 +99,7 @@
         };
         console.log(updateReview);
 
-        $.ajax({url:"http://localhost:9000/review/"+review_id, method:"PUT", data:updateReview}).then((data) => {
+        $.ajax({url:"http://localhost:9000/reviewUp", method:"PUT", data:updateReview}).then((data) => {
             if (data) {
                 alert("Yay! Your book review has been updated!");
             }
