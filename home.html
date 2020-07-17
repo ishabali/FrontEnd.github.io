@@ -13,10 +13,10 @@
   <body>
     <div class='container-lg'>
         <div class="jumbotron">
-            <h1 class="text-center">
-                <span class="fa fa-book"></span> 'Born To Read' Book Club</h1>
-            <hr>
-            <h2 class="text-center">Books of the Month - Mystery Month</h2>
+          <h1 class="text-center">
+            <span class="fa fa-book"></span> 'Born To Read' Book Club</h1>
+        <hr>
+        <h2 class='text-center display-month'></h6>
         </div>
     
         <div class='row'>
@@ -79,11 +79,15 @@
     <footer id="bottom" class="fixed-bottom center container-fluid">
         &#169Copyright Born To Read 2020
     </footer>
-
+    <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script type="text/javascript">
-      
+      var currentDay = moment().format('MMMM YYYY');
+      $('.display-month').append("Books of the Month " + currentDay + "- Mystery Month" );
+  
+
       google.books.load();
       function initialize() {
         
