@@ -99,7 +99,7 @@
         };
         console.log(updateReview);
 
-        $.ajax({url:"http://localhost:9000/reviewUp", method:"PUT", data:updateReview}).then((data) => {
+        $.ajax({url:"https://nwbookclub.herokuapp.com/reviewUp", method:"PUT", data:updateReview}).then((data) => {
             if (data) {
                 alert("Yay! Your book review has been updated!");
             }

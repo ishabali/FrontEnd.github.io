@@ -66,7 +66,7 @@ $(document).on('click','.delete', function(){
     });
 
 const deleteReview = (id) => {
-    const url = "http://localhost:9000/review/"+id;
+    const url = "https://nwbookclub.herokuapp.com/review/"+id;
     console.log(url);
     $.ajax({ url: url, method: "DELETE" }).then((tableData) => {
         console.log(tableData);
@@ -74,7 +74,7 @@ const deleteReview = (id) => {
 }
 
 const runTableQuery = () => {
-    const url = "http://localhost:9000/review/"+id;
+    const url = "https://nwbookclub.herokuapp.com/review/"+id;
     console.log(url);
     $.ajax({ url: url, method: "GET" }).then((tableData) => {
         console.log(tableData);
@@ -119,10 +119,11 @@ const ratings = {
 // total number of stars
 const starTotal = 5;
 
-
+for(const rating in ratings) {  
+  const starPercentage = (ratings[rating] / starTotal) * 100;
+  const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
   document.querySelector(`.${rating} .stars-inner`).style.width = starPercentageRounded; 
-
-
+}
 
 </script>
 </html>

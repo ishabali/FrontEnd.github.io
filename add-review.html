@@ -89,23 +89,12 @@ $( "#bookName" ).append(name);
         };
         console.log(newReview);
         
-        $.post("http://localhost:9000/review-new", newReview,(data) => {
-<<<<<<< HEAD
-            console.log(data)
-            if (!data) {
-            console.log("IF")
-                 alert("Sorry! You already left a review for the book, you can update it");
-            }
-            else {
-                console.log("ELSE")
-               alert("Yay! Your book review has been noted!");
-=======
+        $.post(" https://nwbookclub.herokuapp.com/review-new", newReview,(data) => {
             if (!data) {
                 alert("Sorry! You already left a review for the book, you can update it");
             }
             else {
                 alert("Yay! Your book review has been noted!");
->>>>>>> master
             }
 
             $("#user_id").val("");
