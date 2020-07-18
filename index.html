@@ -48,7 +48,7 @@
         const email = $("#exampleInputEmail1").val().trim().toLowerCase()
         
         console.log(user_name,email);
-        const url = `http://localhost:9000/login/${user_name}/${email}`;
+        const url = `https://nwbookclub.herokuapp.com/login/${user_name}/${email}`;
         console.log(url);
         $.ajax({
             url:url,

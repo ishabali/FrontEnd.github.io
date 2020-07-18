@@ -66,7 +66,7 @@ $(document).on('click','.delete', function(){
     });
 
 const deleteReview = (id) => {
-    const url = "http://localhost:9000/review/"+id;
+    const url = "https://nwbookclub.herokuapp.com/review/"+id;
     console.log(url);
     $.ajax({ url: url, method: "DELETE" }).then((tableData) => {
         console.log(tableData);
@@ -74,7 +74,7 @@ const deleteReview = (id) => {
 }
 
 const runTableQuery = () => {
-    const url = "http://localhost:9000/review/"+id;
+    const url = "https://nwbookclub.herokuapp.com/review/"+id;
     console.log(url);
     $.ajax({ url: url, method: "GET" }).then((tableData) => {
         console.log(tableData);
