@@ -1,4 +1,4 @@
-Frontend
+FrontEnd
 'Born to Read' Book Club - submitted on July 18th 2020 during Northwestern FULL STACK FLEX coding bootcamp
 
 Developed by a Team of 4 developers - Mariya Kirichenko, Isha Bali, Dmitrii Zverev & Carlos Reyes
