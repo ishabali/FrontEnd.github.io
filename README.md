@@ -1,37 +1,25 @@
-## Welcome to GitHub Pages
+Frontend
+'Born to Read' Book Club - submitted on July 18th 2020 during Northwestern FULL STACK FLEX coding bootcamp
 
-You can use the [editor on GitHub](https://github.com/NW-BookClub2020/FrontEnd.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Developed by a Team of 4 developers - Mariya Kirichenko, Isha Bali, Dmitrii Zverev & Carlos Reyes
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Link to Deployed App: https://nw-bookclub2020.github.io/FrontEnd.github.io/
 
-### Markdown
+Links to Github Repository: 
+Frontend: https://github.com/NW-BookClub2020/FrontEnd.github.io
+Backend : https://github.com/NW-BookClub2020/BackEnd.github.io
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Presentation: https://docs.google.com/presentation/d/1lbDkWGF56LuBWIlhzB7xCRyMIYwANUIDVOkbfA4vQ5c/edit#slide=id.g8c4bf16f2c_0_0
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
+Elevator Pitch: 'Born to Read' is a Book Club that allows participants to read books, review books, buy books and look at other reviews of the books to make their reading decisions. It is a space dedicated to book fanatics who love to share their reading experiences with others. 
 
-- Bulleted
-- List
+Concept: For anyone looking for content and staying connected, simulating how things were done before COVID
+Motivation for development?
+Having free access to books and to connect with other people by reading, reviewing and discussing books together
 
-1. Numbered
-2. List
+Technologies used
+JQuery, Express, MySQL, Bootstrap, Heroku, Git, GitHub, RESTside API Query, Express, MySQL, Bootstrap, Heroku, Git, GitHub, RESTside API (Tripadvisor), Travis CI
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/NW-BookClub2020/FrontEnd.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Breakdown of tasks and role:
+Scrum Master, FrontEnd development and BackEnd development
